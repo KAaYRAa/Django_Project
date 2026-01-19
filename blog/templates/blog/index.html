@@ -1,0 +1,43 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block title %} 
+My Blog 
+{% endblock %} 
+
+{% block css_file %}
+<link rel="stylesheet" href="{% static "blog/post.css" %}" />
+  <link rel="stylesheet" href="{% static "blog/index.css" %}" />
+{% endblock %}
+
+{% block content %}
+
+
+<section id="welcome">
+  <header>
+    <img src="{%static "blog/images/first.jpg"%}" alt="Kayra - The Author Of This Blog" />
+    <h2>KAYRA'S BLOG</h2>
+  </header>
+  <p>Hi, I am Kayra and I love to blog about tech and the world!</p>
+</section>
+
+<section id="latest-posts">
+  <h2>My Latest Thoughts</h2>
+
+  <ul>
+    {%for post in posts%}
+    {% include "blog/includes/post.html" %}
+    {%endfor%}
+  </ul>
+</section>
+
+<section id="about">
+  <h2>What I Do</h2>
+  <p>
+    I love programming, reading books, and exploring the great outdoors.
+  </p>
+  <p>
+    My goal is to keep on growing as a developer 
+  </p>
+</section>
+{% endblock %}
